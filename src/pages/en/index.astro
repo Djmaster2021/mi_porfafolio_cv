@@ -149,31 +149,48 @@ const t = data[lang];
         <!-- Education & Certs -->
         <section id="formacion" class="section">
             <div class="container">
-                <h2 class="section__title">{t.infoPersonal.educationTitle}</h2>
-                <div class="education-grid">
-                    <div>
-                        <article class="education-card">
-                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">{t.educacion.carrera}</h3>
-                            <p style="font-size: 1.1rem; color: var(--text-primary);">{t.educacion.universidad}</p>
-                            <p>{t.educacion.periodo} | {t.educacion.estado}</p>
+                <div class="section__header">
+                    <span class="tag">Academic & Certifications</span>
+                    <h2 class="section__title">{t.infoPersonal.educationTitle}</h2>
+                </div>
+
+                <div class="education-layout">
+                    <!-- Main Education -->
+                    <div class="education-main">
+                        <article class="edu-item">
+                            <h3>{t.educacion.carrera}</h3>
+                            <span class="uni">{t.educacion.universidad}</span>
+                            <div class="meta">
+                                <span>{t.educacion.periodo}</span> • <span>{t.educacion.estado}</span>
+                            </div>
                         </article>
                         
-                        <div style="margin-top: 3rem;">
-                            <h3 style="margin-bottom: 1.5rem;">Languages</h3>
-                            {t.idiomas.map((idioma) => (
-                                <p style="margin-bottom: 0.5rem;"><strong>{idioma.nombre}:</strong> {idioma.nivel}</p>
-                            ))}
+                        <div class="info-block">
+                            <h3>{lang === 'es' ? 'Idiomas' : 'Languages'}</h3>
+                            <div class="lang-list">
+                                {t.idiomas.map((idioma) => (
+                                    <div class="lang-card">
+                                        <strong>{idioma.nombre}</strong>
+                                        <span>{idioma.nivel}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    <div class="skill-list">
-                        <h3 style="margin-bottom: 1.5rem;">Certifications</h3>
-                        {t.certificaciones.map((cert) => (
-                            <article class="cert-card" style="padding: 0; border: none; background: none; margin-bottom: 1.5rem;">
-                                <h3 style="font-size: 1rem;">{cert.nombre}</h3>
-                                <p style="font-size: 0.85rem;">{cert.institucion} • {cert.fecha}</p>
-                            </article>
-                        ))}
+                    <!-- Sidebar: Certifications -->
+                    <div class="sidebar-info">
+                        <div class="info-block">
+                            <h3>Professional Certifications</h3>
+                            <div class="cert-list">
+                                {t.certificaciones.map((cert) => (
+                                    <article class="cert-item">
+                                        <h4>{cert.nombre}</h4>
+                                        <p>{cert.institucion} • {cert.fecha}</p>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
