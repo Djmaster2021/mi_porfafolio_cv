@@ -1,1171 +1,374 @@
-/* ============================================================
-   PORTAFOLIO DISEÑO O CSS
-============================================================ */
-
-
-/* ============================================================
-   Apartado: Variables globales del diseño
-============================================================ */
-
 :root {
-    --bg-main: #070b18;
-    --bg-soft: #0f172a;
-    --bg-card: rgba(15, 23, 42, 0.84);
-    --bg-card-hover: rgba(30, 41, 59, 0.92);
-
-    --text-main: #f8fafc;
-    --text-soft: #cbd5e1;
-    --text-muted: #94a3b8;
-
-    --primary: #38bdf8;
-    --primary-soft: rgba(56, 189, 248, 0.12);
-
-    --accent: #a78bfa;
-    --accent-soft: rgba(167, 139, 250, 0.12);
-
-    --success: #22c55e;
-    --success-soft: rgba(34, 197, 94, 0.12);
-
-    --border: rgba(148, 163, 184, 0.22);
-    --border-strong: rgba(56, 189, 248, 0.35);
-
-    --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.24);
-    --shadow-strong: 0 24px 80px rgba(0, 0, 0, 0.42);
-
-    --radius-lg: 28px;
-    --radius-md: 20px;
-    --radius-sm: 14px;
-
-    --container: 1180px;
+  /* Minimalist Palette */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
+  --border: #e5e7eb;
+  --border-strong: #d1d5db;
+  
+  --container: 1000px;
+  --radius: 12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-/* ============================================================
-   Apartado: Reset y configuración base
-============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --accent: #60a5fa;
+    --accent-soft: rgba(96, 165, 250, 0.1);
+    --border: #262626;
+    --border-strong: #404040;
+  }
+}
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: var(--text-main);
-    background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 35%),
-        radial-gradient(circle at top right, rgba(167, 139, 250, 0.14), transparent 32%),
-        radial-gradient(circle at bottom, rgba(34, 197, 94, 0.08), transparent 35%),
-        var(--bg-main);
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background-image:
-        linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: linear-gradient(to bottom, black, transparent 85%);
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-button {
-    font: inherit;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-    width: min(var(--container), calc(100% - 40px));
-    margin: 0 auto;
+  width: min(var(--container), calc(100% - 48px));
+  margin: 0 auto;
 }
 
-
-/* ============================================================
-   Apartado: Barra de navegación
-============================================================ */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    border-bottom: 1px solid var(--border);
-    background: rgba(7, 11, 24, 0.78);
-    backdrop-filter: blur(18px);
-}
-
-.navbar__content {
-    position: relative;
-    height: 76px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.navbar__brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    z-index: 210;
-}
-
-.navbar__logo {
-    width: 42px;
-    height: 42px;
-    display: grid;
-    place-items: center;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: #020617;
-    font-weight: 950;
-    box-shadow: 0 12px 35px rgba(56, 189, 248, 0.25);
-}
-
-.navbar__links {
-    display: flex;
-    align-items: center;
-    gap: 26px;
-    color: var(--text-soft);
-    font-size: 0.95rem;
-}
-
-.navbar__links a {
-    position: relative;
-    transition: color 0.2s ease;
-}
-
-.navbar__links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--primary);
-    transition: width 0.2s ease;
-}
-
-.navbar__links a:hover,
-.navbar__links a.is-active {
-    color: var(--primary);
-}
-
-.navbar__links a:hover::after,
-.navbar__links a.is-active::after {
-    width: 100%;
-}
-
-.navbar__toggle {
-    display: none;
-    width: 52px;
-    height: 52px;
-    border: 1px solid var(--border);
-    background: rgba(15, 23, 42, 0.7);
-    color: var(--text-main);
-    border-radius: 16px;
-    font-size: 1.35rem;
-    cursor: pointer;
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease;
-    z-index: 210;
-}
-
-.navbar__toggle:hover {
-    transform: translateY(-1px);
-    border-color: var(--border-strong);
-    background: rgba(30, 41, 59, 0.82);
-}
-
-
-/* ============================================================
-   Apartado: Estado del menú abierto
-============================================================ */
-
-body.menu-open {
-    overflow: hidden;
-}
-
-/* ============================================================
-   Apartado: Hero principal
-============================================================ */
-
-.hero {
-    min-height: calc(100vh - 76px);
-    display: flex;
-    align-items: center;
-    padding: 96px 0;
-}
-
-.hero__grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
-    gap: 52px;
-    align-items: center;
+/* Typography */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .tag {
-    display: inline-flex;
-    width: fit-content;
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(56, 189, 248, 0.28);
-    background: var(--primary-soft);
-    color: var(--primary);
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(var(--bg-primary), 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__content {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar__links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.navbar__links a:hover {
+  color: var(--accent);
+}
+
+.navbar__toggle {
+  display: none;
+}
+
+/* Hero */
+.hero {
+  padding: 100px 0;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 80px;
+  align-items: center;
 }
 
 .hero__content h1 {
-    margin: 24px 0 18px;
-    font-size: clamp(3.1rem, 7.8vw, 6.6rem);
-    line-height: 0.94;
-    letter-spacing: -0.085em;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero__content h1 span {
-    color: var(--primary);
-}
-
-.hero__content h2 {
-    margin: 0 0 24px;
-    color: var(--text-soft);
-    font-size: clamp(1.25rem, 2.5vw, 1.8rem);
-    font-weight: 700;
+  color: var(--accent);
 }
 
 .hero__content p {
-    max-width: 760px;
-    color: var(--text-muted);
-    font-size: 1.12rem;
-    line-height: 1.85;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 2rem;
 }
 
 .hero__actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 34px;
+  display: flex;
+  gap: 1rem;
 }
 
 .hero__stats {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-    max-width: 760px;
-    margin-top: 36px;
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
 }
 
-.hero__stats div {
-    padding: 18px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: rgba(15, 23, 42, 0.58);
+.hero__stats div strong {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--accent);
 }
 
-.hero__stats strong {
-    display: block;
-    margin-bottom: 6px;
-    color: var(--text-main);
-    font-size: 1.1rem;
+.hero__stats div span {
+  font-size: 0.875rem;
+  color: var(--text-muted);
 }
 
-.hero__stats span {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-}
-
-
-/* ============================================================
-   Apartado: Botones generales
-============================================================ */
-
-.btn {
-    min-height: 48px;
-    padding: 0 22px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    font-weight: 900;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-}
-
-.btn--primary {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: #020617;
-    box-shadow: 0 16px 40px rgba(56, 189, 248, 0.26);
-}
-
-.btn--outline,
-.btn--ghost {
-    border: 1px solid var(--border);
-    background: rgba(15, 23, 42, 0.55);
-    color: var(--text-main);
-}
-
-.btn--outline:hover,
-.btn--ghost:hover {
-    border-color: var(--border-strong);
-}
-
-
-/* ============================================================
-   Apartado: Tarjeta de perfil
-============================================================ */
-
+/* Profile Card (New style) */
 .profile-card {
-    padding: 30px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    background:
-        linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.72));
-    box-shadow: var(--shadow-strong);
-    text-align: center;
+  text-align: center;
 }
 
-.profile-card__status {
-    width: fit-content;
-    margin: 0 auto 28px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(34, 197, 94, 0.35);
-    background: var(--success-soft);
-    color: #86efac;
-    font-size: 0.85rem;
-    font-weight: 900;
+.profile-img-container {
+  width: 240px;
+  height: 240px;
+  margin: 0 auto 1.5rem;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
 }
 
-.profile-card__avatar {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 22px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    box-shadow: 0 20px 60px rgba(56, 189, 248, 0.3);
-}
-
-.profile-card__avatar span {
-    color: #020617;
-    font-size: 3rem;
-    font-weight: 950;
+.profile-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .profile-card h3 {
-    margin: 0 0 6px;
-    font-size: 1.45rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .profile-card p {
-    margin: 0;
-    color: var(--text-muted);
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
-.profile-card__meta {
-    display: grid;
-    gap: 8px;
-    margin-top: 20px;
-    color: var(--text-soft);
-    font-size: 0.92rem;
-}
-
-.tech-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 26px;
-}
-
-.tech-list span {
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(148, 163, 184, 0.12);
-    border: 1px solid rgba(148, 163, 184, 0.16);
-    color: var(--text-soft);
-    font-size: 0.86rem;
-}
-
-
-/* ============================================================
-   Apartado: Secciones generales
-============================================================ */
-
+/* Sections */
 .section {
-    padding: 96px 0;
-}
-
-.section--dark {
-    background: rgba(15, 23, 42, 0.42);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-.section__grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 52px;
-    align-items: start;
-}
-
-.section__header {
-    max-width: 780px;
-    margin-bottom: 44px;
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
 }
 
 .section__title {
-    margin: 18px 0 14px;
-    font-size: clamp(2.1rem, 5vw, 4rem);
-    line-height: 1;
-    letter-spacing: -0.06em;
+  font-size: 2.25rem;
+  margin-bottom: 2.5rem;
 }
 
-.section__description,
-.section__text {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    line-height: 1.85;
+.section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
 }
 
 .section__text p {
-    margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
 }
 
-
-/* ============================================================
-   Apartado: Cards de proyectos
-============================================================ */
-
+/* Projects */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
 .project-card {
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    background: var(--bg-card);
-    box-shadow: var(--shadow-soft);
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  transition: var(--transition);
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--border-strong);
-    background: var(--bg-card-hover);
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
-}
-
-.project-card__top {
-    min-height: 92px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 22px;
-    background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.32), transparent 34%),
-        linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.65));
-    border-bottom: 1px solid var(--border);
-}
-
-.project-card__top span {
-    padding: 7px 12px;
-    border-radius: 999px;
-    background: rgba(56, 189, 248, 0.12);
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    color: var(--primary);
-    font-size: 0.78rem;
-    font-weight: 900;
-}
-
-.project-card__body {
-    padding: 26px;
-}
-
-.project-card__category {
-    margin: 0 0 10px;
-    color: var(--primary);
-    font-size: 0.8rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+  border-color: var(--accent);
+  transform: translateY(-4px);
 }
 
 .project-card h3 {
-    margin: 0 0 14px;
-    font-size: 1.7rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .project-card__description {
-    margin: 0;
-    color: var(--text-muted);
-    line-height: 1.75;
-}
-
-.project-card__impact {
-    margin-top: 18px;
-    padding: 16px;
-    border: 1px solid rgba(34, 197, 94, 0.18);
-    border-radius: var(--radius-sm);
-    background: rgba(34, 197, 94, 0.08);
-    color: var(--text-soft);
-    line-height: 1.6;
-}
-
-.project-card__impact strong {
-    color: #86efac;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
 }
 
 .project-card__stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
 }
 
 .project-card__stack span {
-    padding: 7px 10px;
-    border-radius: 999px;
-    background: rgba(148, 163, 184, 0.12);
-    border: 1px solid rgba(148, 163, 184, 0.16);
-    color: var(--text-soft);
-    font-size: 0.82rem;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
 }
 
 .project-card__link {
-    display: inline-flex;
-    margin-top: 22px;
-    color: var(--primary);
-    font-weight: 900;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.project-card__link:hover {
-    color: #7dd3fc;
-}
-
-
-/* ============================================================
-   Apartado: Habilidades técnicas
-============================================================ */
-
+/* Skills */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-}
-
-.skill-card {
-    padding: 26px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    background: rgba(15, 23, 42, 0.68);
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-strong);
-    background: rgba(30, 41, 59, 0.72);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
 .skill-card h3 {
-    margin: 0 0 18px;
-    font-size: 1.2rem;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--accent);
+  width: fit-content;
+  padding-bottom: 4px;
 }
 
 .skill-card__items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .skill-card__items span {
-    padding: 8px 10px;
-    border-radius: 999px;
-    background: rgba(56, 189, 248, 0.09);
-    border: 1px solid rgba(56, 189, 248, 0.16);
-    color: var(--text-soft);
-    font-size: 0.85rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  padding: 4px 12px;
+  border-radius: 6px;
 }
 
-
-/* ============================================================
-   Apartado: Educación, idiomas y certificaciones
-============================================================ */
-
+/* Education & Certs */
 .education-grid {
-    display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: 24px;
-    margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
 }
 
-.education-card,
-.cert-card {
-    padding: 26px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    background: rgba(15, 23, 42, 0.68);
+.education-card, .cert-card {
+  margin-bottom: 2rem;
 }
 
-.education-card span,
-.cert-card span {
-    display: inline-flex;
-    margin-bottom: 10px;
-    color: var(--primary);
-    font-size: 0.78rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+.education-card h3, .cert-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-.education-card h3,
-.cert-card h3 {
-    margin: 0 0 10px;
-    font-size: 1.25rem;
+.education-card p, .cert-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
-.education-card p,
-.cert-card p {
-    margin: 0 0 8px;
-    color: var(--text-muted);
-    line-height: 1.6;
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
 }
 
-.education-card strong {
-    color: var(--text-soft);
+.btn--primary {
+  background: var(--accent);
+  color: white;
 }
 
-.language-item {
-    padding-top: 10px;
+.btn--primary:hover {
+  opacity: 0.9;
 }
 
-.language-item + .language-item {
-    margin-top: 14px;
-    border-top: 1px solid var(--border);
+.btn--outline {
+  border: 1px solid var(--border);
+  color: var(--text-primary);
 }
 
-.cert-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+.btn--outline:hover {
+  background: var(--bg-secondary);
 }
 
-
-/* ============================================================
-   Apartado: Contacto
-============================================================ */
-
-.contact {
-    padding: 96px 0;
+/* Footer */
+footer {
+  padding: 60px 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-.contact__card {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 34px;
-    align-items: center;
-    padding: 44px;
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    border-radius: var(--radius-lg);
-    background:
-        radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 35%),
-        rgba(15, 23, 42, 0.78);
-    box-shadow: var(--shadow-strong);
-}
-
-.contact__card h2 {
-    margin: 18px 0 12px;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1;
-    letter-spacing: -0.05em;
-}
-
-.contact__card p {
-    color: var(--text-muted);
-    line-height: 1.8;
-}
-
-.contact__actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
-
-
-/* ============================================================
-   Apartado: Footer
-============================================================ */
-
-.footer {
-    padding: 28px 0;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
-    background: rgba(2, 6, 23, 0.5);
-}
-
-.footer__content {
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
-.footer p {
-    margin: 0;
-}
-
-
-/* ============================================================
-   Apartado: Animaciones y efectos suaves
-============================================================ */
-
-.hero__content,
-.profile-card,
-.project-card,
-.skill-card,
-.education-card,
-.cert-card,
-.contact__card {
-    animation: fadeUp 0.7s ease both;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* ============================================================
-   Apartado: Responsive para tablets
-============================================================ */
-
-@media (max-width: 980px) {
-    .hero__grid,
-    .section__grid,
-    .contact__card,
-    .education-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .projects-grid,
-    .skills-grid,
-    .cert-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .contact__actions {
-        justify-content: flex-start;
-    }
-
-    .profile-card {
-        max-width: 520px;
-    }
-
-    .navbar__toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .navbar__links {
-        position: fixed;
-        inset: 0;
-        z-index: 205;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 28px;
-        padding: 120px 24px 40px;
-        background:
-            radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 30%),
-            radial-gradient(circle at bottom, rgba(167, 139, 250, 0.10), transparent 35%),
-            rgba(5, 10, 22, 0.97);
-        backdrop-filter: blur(22px);
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transform: translateY(-10px);
-        transition:
-            opacity 0.25s ease,
-            visibility 0.25s ease,
-            transform 0.25s ease;
-    }
-
-    .navbar__links a {
-        font-size: 2rem;
-        font-weight: 800;
-        color: var(--text-main);
-        text-align: center;
-    }
-
-    .navbar__links a::after {
-        display: none;
-    }
-
-    .navbar__links.is-active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
-    }
-}
-
-
-/* ============================================================
-   Apartado: Responsive para celulares
-============================================================ */
-
-@media (max-width: 720px) {
-    .container {
-        width: min(100% - 28px, var(--container));
-    }
-
-    .navbar__content {
-        height: 76px;
-    }
-
-    .navbar__links {
-        gap: 24px;
-        padding: 110px 20px 36px;
-    }
-
-    .navbar__links a {
-        font-size: 1.8rem;
-    }
-
-    .hero {
-        padding: 70px 0;
-    }
-
-    .hero__content h1 {
-        font-size: clamp(2.6rem, 15vw, 4.5rem);
-    }
-
-    .hero__stats,
-    .projects-grid,
-    .skills-grid,
-    .cert-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section,
-    .contact {
-        padding: 70px 0;
-    }
-
-    .contact__card {
-        padding: 28px;
-    }
-
-    .footer__content {
-        flex-direction: column;
-    }
-}
-
-
-/* ============================================================
-   Apartado: Responsive para celulares
-============================================================ */
-
-@media (max-width: 720px) {
-    .container {
-        width: min(100% - 28px, var(--container));
-    }
-
-    .navbar__content {
-        height: auto;
-        min-height: 76px;
-        padding: 18px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .navbar__toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 18px;
-    }
-
-    .navbar__links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        gap: 14px;
-        padding-top: 12px;
-    }
-
-    .navbar__links.is-active {
-        display: flex;
-    }
-
-    .navbar__links a::after {
-        display: none;
-    }
-
-    .hero {
-        padding: 70px 0;
-    }
-
-    .hero__content h1 {
-        font-size: clamp(2.6rem, 15vw, 4.5rem);
-    }
-
-    .hero__stats,
-    .projects-grid,
-    .skills-grid,
-    .cert-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section,
-    .contact {
-        padding: 70px 0;
-    }
-
-    .contact__card {
-        padding: 28px;
-    }
-
-    .footer__content {
-        flex-direction: column;
-    }
-}
-
-/* ============================================================
-   Apartado: Ajuste del estado profesional en tarjeta de perfil
-============================================================ */
-
-.profile-card__status--top {
-    max-width: 100%;
-    margin-bottom: 28px;
-    text-align: center;
-    line-height: 1.5;
-}
-
-
-/* ============================================================
-   Apartado: Ajustes de educación titulada
-============================================================ */
-
-.education-card small {
-    display: block;
-    margin-top: 14px;
-    color: var(--text-muted);
-    line-height: 1.6;
-}
-
-/* ============================================================
-   Apartado: Corrección definitiva del menú fullscreen
-   Objetivo: Que el menú no empuje el contenido y cubra toda la pantalla
-============================================================ */
-
-@media (max-width: 980px) {
-    .navbar {
-        position: sticky !important;
-        top: 0 !important;
-        z-index: 9999 !important;
-    }
-
-    .navbar__content {
-        position: relative !important;
-        height: 86px !important;
-        min-height: 86px !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-    }
-
-    .navbar__brand {
-        position: relative !important;
-        z-index: 10002 !important;
-
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-    }
-
-    .navbar__toggle {
-        position: relative !important;
-        top: auto !important;
-        right: auto !important;
-
-        z-index: 10002 !important;
-
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        margin-left: auto !important;
-
-        width: 52px !important;
-        height: 52px !important;
-
-        border: 1px solid var(--border) !important;
-        border-radius: 16px !important;
-
-        background: rgba(15, 23, 42, 0.88) !important;
-        color: var(--text-main) !important;
-
-        font-size: 1.35rem !important;
-        cursor: pointer !important;
-    }
-
-    .navbar__links {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-
-        width: 100vw !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-
-        z-index: 10000 !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        gap: 28px !important;
-        padding: 120px 24px 48px !important;
-
-        background:
-            radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 34%),
-            radial-gradient(circle at bottom right, rgba(167, 139, 250, 0.16), transparent 34%),
-            #050a16 !important;
-
-        backdrop-filter: blur(24px) !important;
-
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-
-        transform: translateY(-10px) !important;
-
-        transition:
-            opacity 0.25s ease,
-            visibility 0.25s ease,
-            transform 0.25s ease !important;
-    }
-
-    .navbar__links.is-active {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        transform: translateY(0) !important;
-    }
-
-    .navbar__links a {
-        display: block !important;
-
-        color: var(--text-main) !important;
-        font-size: clamp(2.1rem, 9vw, 4rem) !important;
-        font-weight: 950 !important;
-        line-height: 1 !important;
-        letter-spacing: -0.05em !important;
-        text-align: center !important;
-    }
-
-    .navbar__links a:hover,
-    .navbar__links a.is-active {
-        color: var(--primary) !important;
-    }
-
-    .navbar__links a::after {
-        display: none !important;
-    }
-
-    body.menu-open {
-        overflow: hidden !important;
-    }
-}
-
-
-/* ============================================================
-   Apartado: Corrección fina para celular
-============================================================ */
-
-@media (max-width: 720px) {
-    .navbar__content {
-        height: 82px !important;
-        min-height: 82px !important;
-    }
-
-    .navbar__brand {
-        max-width: calc(100% - 72px) !important;
-    }
-
-    .navbar__brand span:last-child {
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-    }
-
-    .navbar__toggle {
-        width: 50px !important;
-        height: 50px !important;
-        flex-shrink: 0 !important;
-    }
-
-    .navbar__links {
-        padding-top: 120px !important;
-        gap: 24px !important;
-    }
+/* Mobile */
+@media (max-width: 768px) {
+  .hero__grid, .section__grid, .education-grid, .projects-grid, .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero { padding: 60px 0; }
+  .hero__content h1 { font-size: 2.5rem; }
+  .navbar__links { display: none; }
+  .navbar__toggle { display: block; }
 }

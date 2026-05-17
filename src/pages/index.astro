@@ -4,25 +4,13 @@ import { infoPersonal, proyectos, habilidades, educacion, idiomas, certificacion
 ---
 
 <Layout title={`${infoPersonal.nombre_corto} | Portafolio`}>
-    <!-- ======================================================
-         Apartado: Barra de navegación
-    ====================================================== -->
     <header class="navbar">
         <div class="container navbar__content">
             <a href="#inicio" class="navbar__brand">
-                <span class="navbar__logo">{infoPersonal.iniciales}</span>
-                <span>{infoPersonal.nombre_corto}</span>
+                {infoPersonal.nombre_corto}
             </a>
 
-            <button
-                class="navbar__toggle"
-                id="menuToggle"
-                type="button"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                aria-controls="navMenu">
-                ☰
-            </button>
+            <button class="navbar__toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
 
             <nav class="navbar__links" id="navMenu">
                 <a href="#inicio">Inicio</a>
@@ -35,155 +23,89 @@ import { infoPersonal, proyectos, habilidades, educacion, idiomas, certificacion
     </header>
 
     <main>
-        <!-- Hero -->
+        <!-- Hero Section -->
         <section id="inicio" class="hero">
             <div class="container hero__grid">
                 <div class="hero__content">
-                    <span class="tag">Disponible para oportunidades junior</span>
+                    <span class="tag">Junior Software Developer</span>
                     <h1>
-                        Backend, QA y sistemas reales con
-                        <span>Python & Django</span>.
+                        Building robust systems with <span>Python & Django</span>.
                     </h1>
-                    <h2>{infoPersonal.especialidad}</h2>
                     <p>{infoPersonal.descripcion}</p>
                     <div class="hero__actions">
                         <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
-                        <a href={infoPersonal.github} target="_blank" rel="noopener" class="btn btn--outline">
-                            GitHub
-                        </a>
-                        <a href="#contacto" class="btn btn--ghost">Contacto</a>
+                        <a href={infoPersonal.github} target="_blank" rel="noopener" class="btn btn--outline">GitHub</a>
                     </div>
                     <div class="hero__stats">
                         <div>
                             <strong>4+</strong>
-                            <span>Proyectos reales</span>
+                            <span>Proyectos</span>
                         </div>
                         <div>
                             <strong>Backend</strong>
-                            <span>Django / DRF</span>
+                            <span>Django Specialist</span>
                         </div>
                         <div>
                             <strong>QA</strong>
-                            <span>Validación de flujos</span>
+                            <span>Quality Focused</span>
                         </div>
                     </div>
                 </div>
 
                 <aside class="profile-card">
-                    <div class="profile-card__status">
-                        <span>{infoPersonal.disponibilidad_laboral}</span>
-                    </div>
-                    <div class="profile-card__avatar">
-                        <span>{infoPersonal.iniciales}</span>
+                    <div class="profile-img-container">
+                        <img src="/perfil.jpeg" alt={infoPersonal.nombre} />
                     </div>
                     <h3>{infoPersonal.nombre}</h3>
-                    <p>{infoPersonal.rol}</p>
-                    <div class="profile-card__meta">
-                        <span>{infoPersonal.ubicacion}</span>
-                        <span>{infoPersonal.disponibilidad}</span>
-                    </div>
-                    <div class="tech-list">
-                        <span>Python</span>
-                        <span>Django</span>
-                        <span>DRF</span>
-                        <span>SQL</span>
-                        <span>Docker</span>
-                        <span>Linux</span>
-                    </div>
+                    <p>{infoPersonal.especialidad}</p>
                 </aside>
             </div>
         </section>
 
-        <!-- Sobre mí -->
+        <!-- About Section -->
         <section class="section">
             <div class="container section__grid">
-                <div>
-                    <span class="tag">Sobre mí</span>
-                    <h2 class="section__title">
-                        No solo desarrollo páginas web: construyo soluciones pensadas para funcionar en la vida real.
-                    </h2>
-                </div>
+                <h2 class="section__title">Ingeniería con propósito.</h2>
                 <div class="section__text">
                     <p>
-                        Soy Ingeniero en Computación y Desarrollador de Software Junior con enfoque en
-                        backend, sistemas administrativos y aplicaciones web orientadas a resolver problemas
-                        reales. Me gusta construir proyectos que tengan lógica clara, estructura sólida y una
-                        experiencia de usuario que se sienta profesional desde el primer contacto.
+                        Soy Ingeniero en Computación y Desarrollador de Software Junior enfocado en
+                        backend y sistemas administrativos que resuelven problemas reales.
                     </p>
                     <p>
-                        Mi principal stack gira alrededor de Python, Django, Django REST Framework y bases de
-                        datos relacionales. He trabajado en sistemas de reservaciones, gestión de citas,
-                        control de inventario, punto de venta, pagos, reportes, autenticación y validación
-                        de flujos de negocio. Eso me ha ayudado a entender que el software no se trata solo
-                        de escribir código, sino de diseñar procesos que sean útiles, mantenibles y confiables.
-                    </p>
-                    <p>
-                        También tengo interés fuerte por QA, análisis de datos, inteligencia de negocios y
-                        ciberseguridad. Me interesa crecer como desarrollador backend y, a la vez, fortalecer
-                        mi capacidad para analizar información, detectar errores, mejorar procesos y construir
-                        sistemas cada vez más seguros y escalables.
-                    </p>
-                    <p>
-                        Actualmente busco oportunidades donde pueda aportar disciplina, lógica, aprendizaje
-                        rápido y compromiso. No me vendo como experto de diez años; me presento como alguien
-                        en crecimiento, pero con proyectos reales, criterio técnico y muchas ganas de tomar
-                        retos que me obliguen a subir de nivel.
+                        Mi stack principal incluye <strong>Python, Django, y SQL</strong>. Me apasiona construir arquitecturas limpias y procesos que sean útiles y confiables.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Proyectos -->
-        <section id="proyectos" class="section section--dark">
+        <!-- Projects Section -->
+        <section id="proyectos" class="section">
             <div class="container">
-                <div class="section__header">
-                    <span class="tag">Trabajo reciente</span>
-                    <h2 class="section__title">Proyectos destacados</h2>
-                    <p class="section__description">
-                        Sistemas construidos con enfoque práctico, arquitectura backend,
-                        bases de datos y necesidades reales de negocio.
-                    </p>
-                </div>
+                <h2 class="section__title">Proyectos destacados</h2>
                 <div class="projects-grid">
                     {proyectos.map((proyecto) => (
                         <article class="project-card">
-                            <div class="project-card__top">
-                                <span>{proyecto.estado}</span>
+                            <span class="tag">{proyecto.estado}</span>
+                            <h3>{proyecto.nombre}</h3>
+                            <p class="project-card__description">{proyecto.descripcion}</p>
+                            <div class="project-card__stack">
+                                {proyecto.tecnologias.map((tecnologia) => (
+                                    <span>{tecnologia}</span>
+                                ))}
                             </div>
-                            <div class="project-card__body">
-                                <p class="project-card__category">{proyecto.tipo}</p>
-                                <h3>{proyecto.nombre}</h3>
-                                <p class="project-card__description">{proyecto.descripcion}</p>
-                                <div class="project-card__impact">
-                                    <strong>Impacto:</strong>
-                                    <span>{proyecto.impacto}</span>
-                                </div>
-                                <div class="project-card__stack">
-                                    {proyecto.tecnologias.map((tecnologia) => (
-                                        <span>{tecnologia}</span>
-                                    ))}
-                                </div>
-                                <a href={proyecto.github} target="_blank" rel="noopener" class="project-card__link">
-                                    Ver repositorio →
-                                </a>
-                            </div>
+                            <a href={proyecto.github} target="_blank" rel="noopener" class="project-card__link">
+                                Ver código →
+                            </a>
                         </article>
                     ))}
                 </div>
             </div>
         </section>
 
-        <!-- Habilidades -->
+        <!-- Skills Section -->
         <section id="habilidades" class="section">
             <div class="container">
-                <div class="section__header">
-                    <span class="tag">Stack técnico</span>
-                    <h2 class="section__title">Habilidades principales</h2>
-                    <p class="section__description">
-                        Tecnologías y áreas trabajadas en proyectos personales,
-                        formación profesional y práctica técnica.
-                    </p>
-                </div>
+                <h2 class="section__title">Stack técnico</h2>
                 <div class="skills-grid">
                     {habilidades.map((habilidad) => (
                         <article class="skill-card">
@@ -199,78 +121,55 @@ import { infoPersonal, proyectos, habilidades, educacion, idiomas, certificacion
             </div>
         </section>
 
-        <!-- Formación -->
-        <section id="formacion" class="section section--dark">
+        <!-- Education & Certs -->
+        <section id="formacion" class="section">
             <div class="container">
-                <div class="section__header">
-                    <span class="tag">Formación</span>
-                    <h2 class="section__title">Educación, título y certificaciones</h2>
-                    <p class="section__description">
-                        Formación universitaria, acreditación académica, certificaciones técnicas e idiomas.
-                    </p>
-                </div>
+                <h2 class="section__title">Formación y Certificaciones</h2>
                 <div class="education-grid">
-                    <article class="education-card education-card--main">
-                        <span>{educacion.estado}</span>
-                        <h3>{educacion.carrera}</h3>
-                        <p>{educacion.universidad}</p>
-                        <p>{educacion.ubicacion}</p>
-                        <strong>{educacion.periodo}</strong>
-                        <small>Fecha de terminación: {educacion.fecha_terminacion}</small>
-                    </article>
-                    <article class="education-card">
-                        <span>Idiomas</span>
-                        {idiomas.map((idioma) => (
-                            <div class="language-item">
-                                <strong>{idioma.nombre}</strong>
-                                <p>{idioma.nivel}</p>
-                            </div>
-                        ))}
-                    </article>
-                </div>
-                <div class="cert-grid">
-                    {certificaciones.map((cert) => (
-                        <article class="cert-card">
-                            <span>{cert.fecha}</span>
-                            <h3>{cert.nombre}</h3>
-                            <p>{cert.institucion}</p>
+                    <div>
+                        <article class="education-card">
+                            <span class="tag">Universidad</span>
+                            <h3>{educacion.carrera}</h3>
+                            <p>{educacion.universidad}</p>
+                            <p>{educacion.periodo} | {educacion.estado}</p>
                         </article>
-                    ))}
+                        
+                        <article class="education-card">
+                            <span class="tag">Idiomas</span>
+                            {idiomas.map((idioma) => (
+                                <p><strong>{idioma.nombre}:</strong> {idioma.nivel}</p>
+                            ))}
+                        </article>
+                    </div>
+
+                    <div>
+                        {certificaciones.map((cert) => (
+                            <article class="cert-card">
+                                <h3>{cert.nombre}</h3>
+                                <p>{cert.institucion} • {cert.fecha}</p>
+                            </article>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contacto -->
-        <section id="contacto" class="contact">
-            <div class="container contact__card">
-                <div>
-                    <span class="tag">Contacto</span>
-                    <h2>¿Buscas un desarrollador junior con hambre de crecer?</h2>
-                    <p>
-                        Estoy abierto a oportunidades laborales, colaboración en proyectos
-                        y posiciones donde pueda aportar con backend, Django, QA,
-                        bases de datos y desarrollo web.
-                    </p>
-                </div>
-                <div class="contact__actions">
-                    <a href={`mailto:${infoPersonal.email}`} class="btn btn--primary">
-                        Enviar correo
-                    </a>
-                    <a href={infoPersonal.github} target="_blank" rel="noopener" class="btn btn--outline">
-                        GitHub
-                    </a>
-                    <a href={infoPersonal.linkedin} target="_blank" rel="noopener" class="btn btn--outline">
-                        LinkedIn
-                    </a>
+        <!-- Contact Section -->
+        <section id="contacto" class="section">
+            <div class="container">
+                <h2 class="section__title">Hablemos.</h2>
+                <div class="hero__actions">
+                    <a href={`mailto:${infoPersonal.email}`} class="btn btn--primary">Email</a>
+                    <a href={infoPersonal.linkedin} target="_blank" rel="noopener" class="btn btn--outline">LinkedIn</a>
+                    <a href={infoPersonal.github} target="_blank" rel="noopener" class="btn btn--outline">GitHub</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container footer__content">
-            <p>© 2026 {infoPersonal.nombre_corto}.</p>
-            <p>Desarrollado con Astro · CSS · JavaScript</p>
+    <footer>
+        <div class="container">
+            <p>© 2026 {infoPersonal.nombre_corto}. Built with Astro.</p>
         </div>
     </footer>
 </Layout>
