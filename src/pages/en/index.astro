@@ -1,28 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { data } from '../data/info.js';
+import Layout from '../../layouts/Layout.astro';
+import { data } from '../../data/info.js';
 
-const lang = "es";
+const lang = "en";
 const t = data[lang];
 ---
 
-<Layout title={`${t.infoPersonal.nombre_corto} | Portafolio`} lang={lang}>
+<Layout title={`${t.infoPersonal.nombre_corto} | Portfolio`} lang={lang}>
     <header class="navbar">
         <div class="container navbar__content">
-            <a href="#inicio" class="navbar__brand">
+            <a href={`/${lang}#inicio`} class="navbar__brand">
                 {t.infoPersonal.nombre_corto}
             </a>
 
             <nav class="navbar__links">
-                <a href="#inicio">{t.nav.inicio}</a>
-                <a href="#proyectos">{t.nav.proyectos}</a>
-                <a href="#habilidades">{t.nav.habilidades}</a>
-                <a href="#formacion">{t.nav.formacion}</a>
-                <a href="#contacto">{t.nav.contacto}</a>
+                <a href={`/${lang}#inicio`}>{t.nav.inicio}</a>
+                <a href={`/${lang}#proyectos`}>{t.nav.proyectos}</a>
+                <a href={`/${lang}#habilidades`}>{t.nav.habilidades}</a>
+                <a href={`/${lang}#formacion`}>{t.nav.formacion}</a>
+                <a href={`/${lang}#contacto`}>{t.nav.contacto}</a>
                 
                 <div class="controls">
                     <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
-                    <a href="/en" class="lang-toggle">EN</a>
+                    <a href="/" class="lang-toggle">ES</a>
                 </div>
             </nav>
         </div>
@@ -39,7 +39,7 @@ const t = data[lang];
                     </h1>
                     <p>{t.infoPersonal.descripcion}</p>
                     <div class="hero__actions">
-                        <a href="#proyectos" class="btn btn--primary">{t.nav.proyectos}</a>
+                        <a href={`/${lang}#proyectos`} class="btn btn--primary">{t.nav.proyectos}</a>
                         <a href={t.infoPersonal.github} target="_blank" rel="noopener" class="btn btn--outline">GitHub</a>
                     </div>
                     <div class="hero__stats">
@@ -88,7 +88,7 @@ const t = data[lang];
                                 ))}
                             </div>
                             <a href={proyecto.github} target="_blank" rel="noopener" class="project-card__link">
-                                Ver código →
+                                View Code →
                             </a>
                         </article>
                     ))}
@@ -122,14 +122,14 @@ const t = data[lang];
                 <div class="education-grid">
                     <div>
                         <article class="education-card">
-                            <span class="tag">{lang === 'es' ? 'Universidad' : 'University'}</span>
+                            <span class="tag">University</span>
                             <h3>{t.educacion.carrera}</h3>
                             <p>{t.educacion.universidad}</p>
                             <p>{t.educacion.periodo} | {t.educacion.estado}</p>
                         </article>
                         
                         <article class="education-card">
-                            <span class="tag">{lang === 'es' ? 'Idiomas' : 'Languages'}</span>
+                            <span class="tag">Languages</span>
                             {t.idiomas.map((idioma) => (
                                 <p><strong>{idioma.nombre}:</strong> {idioma.nivel}</p>
                             ))}
