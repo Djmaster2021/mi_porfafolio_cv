@@ -25,10 +25,22 @@ const t = data[lang];
                         <span id="themeIcon">🌓</span>
                     </button>
                     <a href="/en" class="lang-toggle">EN</a>
+                    <button id="menuToggle" class="navbar__toggle">☰</button>
                 </div>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Sidebar -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+    <aside id="mobileSidebar" class="mobile-sidebar">
+        <button id="closeSidebar" class="close-sidebar">&times;</button>
+        <a href="#inicio" class="sidebar-link">{t.nav.inicio}</a>
+        <a href="#proyectos" class="sidebar-link">{t.nav.proyectos}</a>
+        <a href="#habilidades" class="sidebar-link">{t.nav.habilidades}</a>
+        <a href="#formacion" class="sidebar-link">{t.nav.formacion}</a>
+        <a href="#contacto" class="sidebar-link">{t.nav.contacto}</a>
+    </aside>
 
     <main>
         <!-- Hero Section -->
@@ -78,7 +90,8 @@ const t = data[lang];
                     {t.proyectos.map((proyecto) => (
                         <article class="project-fluid-item">
                             <div class="project-meta-elegant">
-                                <span class="project-type">{proyecto.tipo}</span>
+                                <span class="status-badge">{proyecto.estado}</span>
+                                <p class="project-type">{proyecto.tipo}</p>
                                 <h3>{proyecto.nombre}</h3>
                                 <p style="font-weight: 600; color: var(--text-muted);">{proyecto.periodo}</p>
                             </div>
@@ -124,10 +137,11 @@ const t = data[lang];
                 <h2 style="margin-bottom: 4rem; text-align: center;">{t.infoPersonal.educationTitle}</h2>
                 <div class="project-fluid-item" style="margin-bottom: 0;">
                     <div class="project-meta-elegant">
-                        <span class="project-type">Título Universitario</span>
+                        <span class="status-badge">{t.educacion.estado}</span>
+                        <p class="project-type">Título Universitario</p>
                         <h3>{t.educacion.carrera}</h3>
                         <p>{t.educacion.universidad}</p>
-                        <p class="project-type" style="color: var(--text-muted); margin-top: 1rem;">{t.educacion.periodo} • {t.educacion.estado}</p>
+                        <p class="project-type" style="color: var(--text-muted); margin-top: 1rem;">{t.educacion.periodo}</p>
                     </div>
                     
                     <div class="project-content">
@@ -177,12 +191,27 @@ const t = data[lang];
 <script>
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
+    const menuToggle = document.getElementById('menuToggle');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
     
     const updateIcon = (theme) => {
         if (themeIcon) {
             themeIcon.innerText = theme === 'dark' ? '☀️' : '🌙';
         }
     };
+
+    const toggleSidebar = () => {
+        mobileSidebar?.classList.toggle('is-active');
+        sidebarOverlay?.classList.toggle('is-active');
+    };
+
+    menuToggle?.addEventListener('click', toggleSidebar);
+    closeSidebar?.addEventListener('click', toggleSidebar);
+    sidebarOverlay?.addEventListener('click', toggleSidebar);
+    sidebarLinks.forEach(link => link.addEventListener('click', toggleSidebar));
 
     const currentTheme = document.documentElement.getAttribute('data-theme');
     updateIcon(currentTheme);
