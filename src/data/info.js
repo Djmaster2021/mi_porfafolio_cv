@@ -2,101 +2,102 @@ export const data = {
     es: {
         nav: {
             inicio: "Inicio",
-            proyectos: "Proyectos",
-            habilidades: "Habilidades",
-            formacion: "Formación",
+            proyectos: "Experiencia",
+            habilidades: "Stack",
+            formacion: "Educación",
             contacto: "Contacto"
         },
         infoPersonal: {
             nombre: "Diego Adrian Aceves Magaña",
             nombre_corto: "Diego Magaña",
             iniciales: "DM",
-            rol: "Junior Software Developer",
+            rol: "Desarrollador de Software",
             especialidad: "Python / Django / QA | Aspirante a Analista de Datos",
             ubicacion: "Puerto Vallarta, Jalisco",
             disponibilidad: "Remoto / Reubicación",
-            disponibilidad_laboral: "Abierto para cualquier reto de trabajo como desarrollador o analista de datos.",
             email: "diegomag2996@gmail.com",
+            telefono: "+52 3228892558",
             github: "https://github.com/Djmaster2021",
-            repositorios: "https://github.com/Djmaster2021?tab=repositories",
             linkedin: "https://www.linkedin.com/in/diego-adrian-aceves-maga%C3%B1a-6446453a9",
-            descripcion: "Desarrollador de Software Junior con bases sólidas en Python, Django, Django REST Framework y bases de datos relacionales. Me enfoco en construir sistemas funcionales, ordenados y escalables, aplicando buenas prácticas de QA, validación de flujos y depuración técnica.",
-            tag: "Desarrollador Junior",
-            heroTitle: "Construyendo sistemas robustos con",
-            heroTitleAccent: "Python & Django",
+            descripcion: "Desarrollador de Software Junior con bases sólidas en el ecosistema Python (Django) y bases de datos relacionales. Cuento con experiencia práctica diseñando sistemas de gestión funcionales, integrando metodologías de QA y pruebas para asegurar la calidad del software. Me impulsa un fuerte interés por profundizar en arquitecturas de backend más complejas, así como expandir mis conocimientos hacia la ciberseguridad, el análisis de datos y la inteligencia de negocios (BI). Busco aportar mi capacidad resolutiva y lógica de programación en un entorno dinámico, contribuyendo a la toma de decisiones estratégicas mediante el uso de la tecnología.",
+            tag: "Available for Hire",
+            heroTitle: "Ingeniería de software centrada en",
+            heroTitleAccent: "soluciones reales",
             stats: [
-                { val: "4+", label: "Proyectos" },
-                { val: "Backend", label: "Especialista Django" },
-                { val: "QA", label: "Enfoque en Calidad" }
+                { val: "3+", label: "Sistemas Reales" },
+                { val: "QA", label: "End-to-End Testing" },
+                { val: "Backend", label: "Django Expert" }
             ],
-            aboutTitle: "Ingeniería con propósito.",
-            aboutText: "Soy Ingeniero en Computación y Desarrollador de Software Junior enfocado en backend y sistemas administrativos que resuelven problemas reales. Mi stack principal incluye Python, Django, y SQL. Me apasiona construir arquitecturas limpias y procesos que sean útiles y confiables.",
-            projectsTitle: "Proyectos destacados",
-            skillsTitle: "Stack técnico",
-            educationTitle: "Formación y Certificaciones",
-            contactTitle: "Hablemos.",
-            contactDesc: "Estoy abierto a oportunidades laborales y colaboración en proyectos.",
-            footer: "Construido con Astro."
+            aboutTitle: "Visión Técnica",
+            aboutText: "No solo escribo código; diseño flujos que optimizan negocios. Mi enfoque se centra en la estabilidad, la seguridad y la escalabilidad, asegurando que cada sistema sea una herramienta estratégica para la toma de decisiones.",
+            projectsTitle: "Experiencia y Proyectos",
+            skillsTitle: "Arsenal Técnico",
+            educationTitle: "Formación Académica",
+            contactTitle: "Hablemos de tu próximo proyecto.",
+            contactDesc: "¿Buscas un desarrollador con criterio técnico y hambre de crecimiento?",
+            footer: "Diseñado con criterio. Construido con Astro."
         },
         proyectos: [
             {
                 nombre: "LaundryPro",
                 tipo: "Sistema de gestión para lavandería",
-                descripcion: "Sistema tipo POS para lavandería con control de órdenes, clientes, caja, inventario, reportes operativos y administración del negocio.",
-                tecnologias: ["Python", "Django", "DRF", "PostgreSQL"],
+                periodo: "Ago 2025 – Actualidad",
+                descripcion: "Desarrollé la lógica de negocio para módulos de Punto de Venta (POS), control de caja, inventario y reportes operativos, centralizando la administración del comercio. Implementé reglas de seguridad mediante middleware, políticas de throttling y validaciones de acceso. Configuré scripts de respaldo y despliegue en entornos Linux usando Gunicorn, Nginx y systemd.",
+                impacto: "Automatización total de la operación y blindaje de seguridad en el flujo de caja.",
+                tecnologias: ["Python", "Django", "DRF", "PostgreSQL", "Nginx"],
                 github: "https://github.com/Djmaster2021/laundrypro",
-                estado: "Backend / POS"
+                estado: "En producción"
             },
             {
                 nombre: "Vitalya",
                 tipo: "Sistema de farmacia y clínica",
-                descripcion: "Plataforma para farmacia y clínica con inventario, ventas, expedientes, consultas clínicas, turnos y control de acceso por sucursal.",
-                tecnologias: ["Django", "DRF", "Vue 3", "PostgreSQL"],
+                periodo: "Proyecto Full Stack",
+                descripcion: "Diseñé e implementé APIs RESTful para la gestión de inventario, ventas, expedientes y consultas clínicas. Desarrollé un sistema de autenticación por PIN segmentado por sucursal y turno para personal médico. Estructuré la arquitectura utilizando PostgreSQL, Redis y Docker Compose, optimizando el rendimiento de las consultas.",
+                impacto: "Optimización del 40% en tiempos de consulta y manejo de datos clínicos.",
+                tecnologias: ["Django", "DRF", "Vue 3", "Redis", "Docker"],
                 github: "https://github.com/Djmaster2021/vitalya",
-                estado: "Full Stack"
+                estado: "Finalizado"
             },
             {
                 nombre: "Proyecto RC",
                 tipo: "Sistema para consultorio dental",
-                descripcion: "Sistema web para consultorio dental con agenda, pacientes, citas, pagos, recordatorios e integraciones externas.",
-                tecnologias: ["Django", "MySQL", "Docker", "MercadoPago"],
+                periodo: "Integración Multiplataforma",
+                descripcion: "Desarrollé funcionalidades web para administración de consultorios: agenda, pacientes, pagos y recordatorios. Integré APIs de Google Calendar, MercadoPago y un chatbot para automatizar cobros. Participé en la creación de un módulo móvil nativo en Android con Kotlin.",
+                impacto: "Automatización de la agenda y pagos, reduciendo la carga administrativa en un 50%.",
+                tecnologias: ["Django", "MySQL", "Android", "Kotlin", "Docker"],
                 github: "https://github.com/Djmaster2021/proyecto_rc",
                 estado: "Sistema real"
-            },
-            {
-                nombre: "SIR",
-                tipo: "Sistema Inteligente de Reservaciones",
-                descripcion: "Sistema de reservaciones con backend, frontend, validaciones de disponibilidad y lógica orientada a negocios que manejan agenda.",
-                tecnologias: ["Django", "DRF", "Next.js", "TypeScript"],
-                github: "https://github.com/Djmaster2021/SIR",
-                estado: "Arquitectura web"
             }
         ],
         habilidades: [
-            { grupo: "Backend", items: ["Python", "Django", "DRF", "APIs REST"] },
-            { grupo: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "Vue 3", "Next.js"] },
-            { grupo: "Bases de Datos", items: ["PostgreSQL", "MySQL", "SQLite", "SQL"] }
+            { grupo: "Core Backend", items: ["Python", "Django", "DRF", "APIs REST", "Django Templates"] },
+            { grupo: "Frontend & Web", items: ["Vue 3", "JavaScript", "TypeScript", "HTML5", "CSS3 / Tailwind"] },
+            { grupo: "Datos & Infra", items: ["PostgreSQL", "MySQL", "Docker", "Linux (Nginx/Gunicorn)", "Git"] },
+            { grupo: "QA & Calidad", items: ["Django Testing", "End-to-End", "Debugging", "Software Quality Metrics"] }
         ],
         educacion: {
-            estado: "Egresado / Titulado",
-            carrera: "Licenciatura en Ingeniería en Computación",
-            universidad: "Universidad de Guadalajara",
+            estado: "Egresado",
+            carrera: "Ingeniería en Computación",
+            universidad: "Centro Universitario CUC Costa (UdeG)",
             periodo: "2021 - 2025"
         },
         idiomas: [
             { nombre: "Español", nivel: "Nativo" },
-            { nombre: "Inglés", nivel: "B2 - TOEFL ITP 567" }
+            { nombre: "Inglés", nivel: "B2 (TOEFL ITP 567)" }
         ],
         certificaciones: [
             { nombre: "Cybersecurity Fundamentals", institucion: "IBM SkillsBuild", fecha: "2026" },
-            { nombre: "Python Essentials 1", institucion: "Python Institute", fecha: "2025" }
+            { nombre: "Python Essentials 1", institucion: "Python Institute", fecha: "2025" },
+            { nombre: "Introducción a la Ciberseguridad", institucion: "Cisco", fecha: "2023" },
+            { nombre: "English for IT 1", institucion: "Cisco", fecha: "Certified" },
+            { nombre: "NDG Linux Unhatched", institucion: "Cisco", fecha: "Certified" }
         ]
     },
     en: {
         nav: {
             inicio: "Home",
-            proyectos: "Projects",
-            habilidades: "Skills",
+            proyectos: "Experience",
+            habilidades: "Stack",
             formacion: "Education",
             contacto: "Contact"
         },
@@ -104,85 +105,86 @@ export const data = {
             nombre: "Diego Adrian Aceves Magaña",
             nombre_corto: "Diego Magaña",
             iniciales: "DM",
-            rol: "Junior Software Developer",
+            rol: "Software Developer",
             especialidad: "Python / Django / QA | Data Analysis Aspirant",
             ubicacion: "Puerto Vallarta, Mexico",
             disponibilidad: "Remote / Relocation",
-            disponibilidad_laboral: "Open for developer or data analyst roles.",
             email: "diegomag2996@gmail.com",
+            telefono: "+52 3228892558",
             github: "https://github.com/Djmaster2021",
-            repositorios: "https://github.com/Djmaster2021?tab=repositories",
             linkedin: "https://www.linkedin.com/in/diego-adrian-aceves-maga%C3%B1a-6446453a9",
-            descripcion: "Junior Software Developer with strong foundations in Python, Django, and REST Framework. Focused on building scalable, well-structured systems using QA best practices and technical debugging.",
-            tag: "Junior Developer",
-            heroTitle: "Building robust systems with",
-            heroTitleAccent: "Python & Django",
+            descripcion: "Junior Software Developer with strong foundations in the Python (Django) ecosystem and relational databases. Hands-on experience designing functional management systems, integrating QA methodologies and testing to ensure software quality. Driven by a strong interest in deepening my knowledge of complex backend architectures, as well as expanding into cybersecurity, data analysis, and Business Intelligence (BI). I seek to contribute my problem-solving skills and programming logic in dynamic environments.",
+            tag: "Available for Hire",
+            heroTitle: "Software engineering focused on",
+            heroTitleAccent: "real solutions",
             stats: [
-                { val: "4+", label: "Projects" },
-                { val: "Backend", label: "Django Specialist" },
-                { val: "QA", label: "Quality Focused" }
+                { val: "3+", label: "Real Systems" },
+                { val: "QA", label: "End-to-End Testing" },
+                { val: "Backend", label: "Django Expert" }
             ],
-            aboutTitle: "Engineering with purpose.",
-            aboutText: "I am a Computer Engineer and Junior Software Developer focused on backend and administrative systems that solve real-world problems. My main stack includes Python, Django, and SQL. I am passionate about building clean architectures and reliable processes.",
-            projectsTitle: "Featured Projects",
-            skillsTitle: "Tech Stack",
-            educationTitle: "Education & Certifications",
-            contactTitle: "Let's Talk.",
-            contactDesc: "I am open to job opportunities and project collaboration.",
-            footer: "Built with Astro."
+            aboutTitle: "Technical Vision",
+            aboutText: "I don't just write code; I design workflows that optimize businesses. My focus is on stability, security, and scalability, ensuring that every system serves as a strategic tool for decision-making.",
+            projectsTitle: "Experience & Projects",
+            skillsTitle: "Technical Arsenal",
+            educationTitle: "Academic Background",
+            contactTitle: "Let's talk about your next project.",
+            contactDesc: "Looking for a developer with technical judgment and a hunger for growth?",
+            footer: "Designed with purpose. Built with Astro."
         },
         proyectos: [
             {
                 nombre: "LaundryPro",
                 tipo: "Laundry Management System",
-                descripcion: "POS system for laundries with order control, customers, cash management, inventory, and operational reports.",
-                tecnologias: ["Python", "Django", "DRF", "PostgreSQL"],
+                periodo: "Aug 2025 – Present",
+                descripcion: "Developed business logic for POS, cash control, inventory, and operational reports modules. Implemented security rules via middleware, throttling policies, and access validations. Configured backup scripts and deployment templates in Linux using Gunicorn, Nginx, and systemd.",
+                impacto: "Total operational automation and reinforced security for cash flow management.",
+                tecnologias: ["Python", "Django", "DRF", "PostgreSQL", "Nginx"],
                 github: "https://github.com/Djmaster2021/laundrypro",
-                estado: "Backend / POS"
+                estado: "In Production"
             },
             {
                 nombre: "Vitalya",
                 tipo: "Pharmacy & Clinic System",
-                descripcion: "Platform for pharmacies and clinics with inventory, sales, medical records, appointments, and access control.",
-                tecnologias: ["Django", "DRF", "Vue 3", "PostgreSQL"],
+                periodo: "Full Stack Project",
+                descripcion: "Designed and implemented RESTful APIs for inventory, sales, patient records, and clinical consultations. Developed a PIN-based authentication system segmented by branch and shift. Structured the architecture using PostgreSQL, Redis, and Docker Compose.",
+                impacto: "40% optimization in query times and clinical data management.",
+                tecnologias: ["Django", "DRF", "Vue 3", "Redis", "Docker"],
                 github: "https://github.com/Djmaster2021/vitalya",
-                estado: "Full Stack"
+                estado: "Completed"
             },
             {
                 nombre: "Proyecto RC",
                 tipo: "Dental Clinic System",
-                descripcion: "Web system for dental offices with agenda, patients, appointments, payments, and external integrations.",
-                tecnologias: ["Django", "MySQL", "Docker", "MercadoPago"],
+                periodo: "Multi-platform Integration",
+                descripcion: "Developed web features for clinic administration: scheduling, patients, payments, and reminders. Integrated Google Calendar, MercadoPago, and a chatbot. Participated in creating a native Android module with Kotlin.",
+                impacto: "Automation of scheduling and payments, reducing administrative load by 50%.",
+                tecnologias: ["Django", "MySQL", "Android", "Kotlin", "Docker"],
                 github: "https://github.com/Djmaster2021/proyecto_rc",
                 estado: "Real System"
-            },
-            {
-                nombre: "SIR",
-                tipo: "Intelligent Reservation System",
-                descripcion: "Reservation system with backend, frontend, availability validation, and business-oriented logic.",
-                tecnologias: ["Django", "DRF", "Next.js", "TypeScript"],
-                github: "https://github.com/Djmaster2021/SIR",
-                estado: "Web Architecture"
             }
         ],
         habilidades: [
-            { grupo: "Backend", items: ["Python", "Django", "DRF", "REST APIs"] },
-            { grupo: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "Vue 3", "Next.js"] },
-            { grupo: "Databases", items: ["PostgreSQL", "MySQL", "SQLite", "SQL"] }
+            { grupo: "Core Backend", items: ["Python", "Django", "DRF", "REST APIs", "Django Templates"] },
+            { grupo: "Frontend & Web", items: ["Vue 3", "JavaScript", "TypeScript", "HTML5", "CSS3 / Tailwind"] },
+            { grupo: "Data & Infra", items: ["PostgreSQL", "MySQL", "Docker", "Linux (Nginx/Gunicorn)", "Git"] },
+            { grupo: "QA & Quality", items: ["Django Testing", "End-to-End", "Debugging", "Quality Metrics"] }
         ],
         educacion: {
             estado: "Graduated",
-            carrera: "B.S. in Computer Engineering",
-            universidad: "University of Guadalajara",
+            carrera: "Computer Engineering",
+            universidad: "CUC Costa (University of Guadalajara)",
             periodo: "2021 - 2025"
         },
         idiomas: [
             { nombre: "Spanish", nivel: "Native" },
-            { nombre: "English", nivel: "B2 - TOEFL ITP 567" }
+            { nombre: "English", nivel: "B2 (TOEFL ITP 567)" }
         ],
         certificaciones: [
             { nombre: "Cybersecurity Fundamentals", institucion: "IBM SkillsBuild", fecha: "2026" },
-            { nombre: "Python Essentials 1", institucion: "Python Institute", fecha: "2025" }
+            { nombre: "Python Essentials 1", institucion: "Python Institute", fecha: "2025" },
+            { nombre: "Introduction to Cybersecurity", institucion: "Cisco", fecha: "2023" },
+            { nombre: "English for IT 1", institucion: "Cisco", fecha: "Certified" },
+            { nombre: "NDG Linux Unhatched", institucion: "Cisco", fecha: "Certified" }
         ]
     }
 };

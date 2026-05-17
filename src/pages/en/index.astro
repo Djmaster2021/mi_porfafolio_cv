@@ -10,7 +10,7 @@ const t = data[lang];
     <header class="navbar">
         <div class="container navbar__content">
             <a href={`/${lang}#inicio`} class="navbar__brand">
-                {t.infoPersonal.nombre_corto}
+                {t.infoPersonal.iniciales} / {t.infoPersonal.nombre_corto}
             </a>
 
             <nav class="navbar__links">
@@ -43,6 +43,7 @@ const t = data[lang];
                     <div class="hero__actions">
                         <a href={`/${lang}#proyectos`} class="btn btn--primary">{t.nav.proyectos}</a>
                         <a href={t.infoPersonal.github} target="_blank" rel="noopener" class="btn btn--outline">GitHub</a>
+                        <a href={t.infoPersonal.linkedin} target="_blank" rel="noopener" class="btn btn--outline">LinkedIn</a>
                     </div>
                     <div class="hero__stats">
                         {t.infoPersonal.stats.map(stat => (
@@ -54,22 +55,27 @@ const t = data[lang];
                     </div>
                 </div>
 
-                <aside class="profile-card">
+                <div class="profile-card">
                     <div class="profile-img-container">
                         <img src="/perfil.jpeg" alt={t.infoPersonal.nombre} />
                     </div>
-                    <h3>{t.infoPersonal.nombre}</h3>
-                    <p>{t.infoPersonal.especialidad}</p>
-                </aside>
+                    <div class="profile-info-overlay">
+                        <h3>{t.infoPersonal.nombre}</h3>
+                        <p>{t.infoPersonal.especialidad}</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">{t.infoPersonal.ubicacion}</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- About Section -->
         <section class="section">
-            <div class="container section__grid">
+            <div class="container section__header">
                 <h2 class="section__title">{t.infoPersonal.aboutTitle}</h2>
                 <div class="section__text">
-                    <p>{t.infoPersonal.aboutText}</p>
+                    <p style="font-size: 1.5rem; font-weight: 500; color: var(--text-primary); line-height: 1.4;">
+                        {t.infoPersonal.aboutText}
+                    </p>
                 </div>
             </div>
         </section>
@@ -77,21 +83,41 @@ const t = data[lang];
         <!-- Projects Section -->
         <section id="proyectos" class="section">
             <div class="container">
-                <h2 class="section__title">{t.infoPersonal.projectsTitle}</h2>
-                <div class="projects-grid">
+                <div class="section__header">
+                    <span class="tag">Selected Work</span>
+                    <h2 class="section__title">{t.infoPersonal.projectsTitle}</h2>
+                </div>
+                
+                <div class="projects-list">
                     {t.proyectos.map((proyecto) => (
-                        <article class="project-card">
-                            <span class="tag">{proyecto.estado}</span>
-                            <h3>{proyecto.nombre}</h3>
-                            <p class="project-card__description">{proyecto.descripcion}</p>
-                            <div class="project-card__stack">
-                                {proyecto.tecnologias.map((tecnologia) => (
-                                    <span>{tecnologia}</span>
-                                ))}
+                        <article class="project-item">
+                            <div class="project-meta">
+                                <span class="tag">{proyecto.estado}</span>
+                                <h3>{proyecto.nombre}</h3>
+                                <span class="period">{proyecto.periodo}</span>
+                                <p style="font-weight: 600; color: var(--accent-brand); margin-bottom: 1rem;">{proyecto.tipo}</p>
                             </div>
-                            <a href={proyecto.github} target="_blank" rel="noopener" class="project-card__link">
-                                View Code →
-                            </a>
+                            
+                            <div class="project-content">
+                                <p>{proyecto.descripcion}</p>
+                                
+                                <div class="project-impact">
+                                    <strong>Key Impact</strong>
+                                    {proyecto.impacto}
+                                </div>
+                                
+                                <div class="project-stack">
+                                    {proyecto.tecnologias.map((tecnologia) => (
+                                        <span>{tecnologia}</span>
+                                    ))}
+                                </div>
+                                
+                                <div style="margin-top: 2rem;">
+                                    <a href={proyecto.github} target="_blank" rel="noopener" class="btn btn--outline" style="padding: 10px 20px; font-size: 0.9rem;">
+                                        View Repository →
+                                    </a>
+                                </div>
+                            </div>
                         </article>
                     ))}
                 </div>
@@ -101,17 +127,20 @@ const t = data[lang];
         <!-- Skills Section -->
         <section id="habilidades" class="section">
             <div class="container">
-                <h2 class="section__title">{t.infoPersonal.skillsTitle}</h2>
-                <div class="skills-grid">
+                <div class="section__header">
+                    <h2 class="section__title">{t.infoPersonal.skillsTitle}</h2>
+                </div>
+                
+                <div class="skills-modern-grid">
                     {t.habilidades.map((habilidad) => (
-                        <article class="skill-card">
+                        <div class="skill-category">
                             <h3>{habilidad.grupo}</h3>
-                            <div class="skill-card__items">
+                            <div class="skill-list">
                                 {habilidad.items.map((item) => (
-                                    <span>{item}</span>
+                                    <div class="skill-item">{item}</div>
                                 ))}
                             </div>
-                        </article>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -124,25 +153,25 @@ const t = data[lang];
                 <div class="education-grid">
                     <div>
                         <article class="education-card">
-                            <span class="tag">University</span>
-                            <h3>{t.educacion.carrera}</h3>
-                            <p>{t.educacion.universidad}</p>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">{t.educacion.carrera}</h3>
+                            <p style="font-size: 1.1rem; color: var(--text-primary);">{t.educacion.universidad}</p>
                             <p>{t.educacion.periodo} | {t.educacion.estado}</p>
                         </article>
                         
-                        <article class="education-card">
-                            <span class="tag">Languages</span>
+                        <div style="margin-top: 3rem;">
+                            <h3 style="margin-bottom: 1.5rem;">Languages</h3>
                             {t.idiomas.map((idioma) => (
-                                <p><strong>{idioma.nombre}:</strong> {idioma.nivel}</p>
+                                <p style="margin-bottom: 0.5rem;"><strong>{idioma.nombre}:</strong> {idioma.nivel}</p>
                             ))}
-                        </article>
+                        </div>
                     </div>
 
-                    <div>
+                    <div class="skill-list">
+                        <h3 style="margin-bottom: 1.5rem;">Certifications</h3>
                         {t.certificaciones.map((cert) => (
-                            <article class="cert-card">
-                                <h3>{cert.nombre}</h3>
-                                <p>{cert.institucion} • {cert.fecha}</p>
+                            <article class="cert-card" style="padding: 0; border: none; background: none; margin-bottom: 1.5rem;">
+                                <h3 style="font-size: 1rem;">{cert.nombre}</h3>
+                                <p style="font-size: 0.85rem;">{cert.institucion} • {cert.fecha}</p>
                             </article>
                         ))}
                     </div>
@@ -151,14 +180,17 @@ const t = data[lang];
         </section>
 
         <!-- Contact Section -->
-        <section id="contacto" class="section">
+        <section id="contacto" class="section" style="border-bottom: none;">
             <div class="container">
-                <h2 class="section__title">{t.infoPersonal.contactTitle}</h2>
-                <p style="margin-bottom: 2rem; color: var(--text-secondary);">{t.infoPersonal.contactDesc}</p>
-                <div class="hero__actions">
-                    <a href={`mailto:${t.infoPersonal.email}`} class="btn btn--primary">Email</a>
-                    <a href={t.infoPersonal.linkedin} target="_blank" rel="noopener" class="btn btn--outline">LinkedIn</a>
-                    <a href={t.infoPersonal.github} target="_blank" rel="noopener" class="btn btn--outline">GitHub</a>
+                <div class="contact-cta">
+                    <span class="tag">Get in touch</span>
+                    <h2>{t.infoPersonal.contactTitle}</h2>
+                    <p style="margin-bottom: 2.5rem; color: var(--text-secondary); font-size: 1.25rem;">{t.infoPersonal.contactDesc}</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href={`mailto:${t.infoPersonal.email}`} class="btn btn--primary">Email Me</a>
+                        <a href={`tel:${t.infoPersonal.telefono}`} class="btn btn--outline">Call Me</a>
+                        <a href={t.infoPersonal.linkedin} target="_blank" rel="noopener" class="btn btn--outline">LinkedIn</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -181,7 +213,6 @@ const t = data[lang];
         }
     };
 
-    // Initialize icon
     const currentTheme = document.documentElement.getAttribute('data-theme');
     updateIcon(currentTheme);
 
