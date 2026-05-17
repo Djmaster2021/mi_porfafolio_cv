@@ -21,7 +21,9 @@ const t = data[lang];
                 <a href={`/${lang}#contacto`}>{t.nav.contacto}</a>
                 
                 <div class="controls">
-                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                        <span id="themeIcon">🌓</span>
+                    </button>
                     <a href="/" class="lang-toggle">ES</a>
                 </div>
             </nav>
@@ -171,10 +173,23 @@ const t = data[lang];
 
 <script>
     const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    
+    const updateIcon = (theme) => {
+        if (themeIcon) {
+            themeIcon.innerText = theme === 'dark' ? '☀️' : '🌙';
+        }
+    };
+
+    // Initialize icon
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    updateIcon(currentTheme);
+
     themeToggle?.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
     });
 </script>
