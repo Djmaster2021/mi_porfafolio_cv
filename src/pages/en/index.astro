@@ -34,7 +34,7 @@ const t = data[lang];
         <!-- Hero Section -->
         <section id="inicio" class="hero">
             <div class="container hero__grid">
-                <div class="hero__content">
+                <div class="bento-card hero-main-card">
                     <span class="tag">{t.infoPersonal.tag}</span>
                     <h1>
                         {t.infoPersonal.heroTitle} <span>{t.infoPersonal.heroTitleAccent}</span>.
@@ -43,7 +43,6 @@ const t = data[lang];
                     <div class="hero__actions">
                         <a href={`/${lang}#proyectos`} class="btn btn--primary">{t.nav.proyectos}</a>
                         <a href={t.infoPersonal.github} target="_blank" rel="noopener" class="btn btn--outline">GitHub</a>
-                        <a href={t.infoPersonal.linkedin} target="_blank" rel="noopener" class="btn btn--outline">LinkedIn</a>
                     </div>
                     <div class="hero__stats">
                         {t.infoPersonal.stats.map(stat => (
@@ -55,7 +54,7 @@ const t = data[lang];
                     </div>
                 </div>
 
-                <div class="profile-card">
+                <div class="bento-card hero-profile-card">
                     <div class="profile-img-container">
                         <img src="/perfil.jpeg" alt={t.infoPersonal.nombre} />
                     </div>
@@ -70,12 +69,14 @@ const t = data[lang];
 
         <!-- About Section -->
         <section class="section">
-            <div class="container section__header">
-                <h2 class="section__title">{t.infoPersonal.aboutTitle}</h2>
-                <div class="section__text">
-                    <p style="font-size: 1.5rem; font-weight: 500; color: var(--text-primary); line-height: 1.4;">
-                        {t.infoPersonal.aboutText}
-                    </p>
+            <div class="container">
+                <div class="bento-card">
+                    <h2 class="section__title">{t.infoPersonal.aboutTitle}</h2>
+                    <div class="section__text">
+                        <p style="font-size: 1.5rem; font-weight: 500; color: var(--text-primary); line-height: 1.4;">
+                            {t.infoPersonal.aboutText}
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -90,7 +91,7 @@ const t = data[lang];
                 
                 <div class="projects-list">
                     {t.proyectos.map((proyecto) => (
-                        <article class="project-item">
+                        <article class="project-item-card">
                             <div class="project-meta">
                                 <span class="tag">{proyecto.estado}</span>
                                 <h3>{proyecto.nombre}</h3>
@@ -131,9 +132,9 @@ const t = data[lang];
                     <h2 class="section__title">{t.infoPersonal.skillsTitle}</h2>
                 </div>
                 
-                <div class="skills-modern-grid">
+                <div class="skills-bento">
                     {t.habilidades.map((habilidad) => (
-                        <div class="skill-category">
+                        <div class="skill-category-card">
                             <h3>{habilidad.grupo}</h3>
                             <div class="skill-list">
                                 {habilidad.items.map((item) => (
@@ -149,46 +150,48 @@ const t = data[lang];
         <!-- Education & Certs -->
         <section id="formacion" class="section">
             <div class="container">
-                <div class="section__header">
-                    <span class="tag">Academic & Certifications</span>
-                    <h2 class="section__title">{t.infoPersonal.educationTitle}</h2>
-                </div>
-
-                <div class="education-layout">
-                    <!-- Main Education -->
-                    <div class="education-main">
-                        <article class="edu-item">
-                            <h3>{t.educacion.carrera}</h3>
-                            <span class="uni">{t.educacion.universidad}</span>
-                            <div class="meta">
-                                <span>{t.educacion.periodo}</span> • <span>{t.educacion.estado}</span>
-                            </div>
-                        </article>
-                        
-                        <div class="info-block">
-                            <h3>{lang === 'es' ? 'Idiomas' : 'Languages'}</h3>
-                            <div class="lang-list">
-                                {t.idiomas.map((idioma) => (
-                                    <div class="lang-card">
-                                        <strong>{idioma.nombre}</strong>
-                                        <span>{idioma.nivel}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                <div class="bento-card">
+                    <div class="section__header">
+                        <span class="tag">Academic & Certifications</span>
+                        <h2 class="section__title">{t.infoPersonal.educationTitle}</h2>
                     </div>
 
-                    <!-- Sidebar: Certifications -->
-                    <div class="sidebar-info">
-                        <div class="info-block">
-                            <h3>Professional Certifications</h3>
-                            <div class="cert-list">
-                                {t.certificaciones.map((cert) => (
-                                    <article class="cert-item">
-                                        <h4>{cert.nombre}</h4>
-                                        <p>{cert.institucion} • {cert.fecha}</p>
-                                    </article>
-                                ))}
+                    <div class="education-layout">
+                        <!-- Main Education -->
+                        <div class="education-main">
+                            <article class="edu-item">
+                                <h3>{t.educacion.carrera}</h3>
+                                <span class="uni">{t.educacion.universidad}</span>
+                                <div class="meta">
+                                    <span>{t.educacion.periodo}</span> • <span>{t.educacion.estado}</span>
+                                </div>
+                            </article>
+                            
+                            <div class="info-block">
+                                <h3>Languages</h3>
+                                <div class="lang-list">
+                                    {t.idiomas.map((idioma) => (
+                                        <div class="lang-card">
+                                            <strong>{idioma.nombre}</strong>
+                                            <span>{idioma.nivel}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar: Certifications -->
+                        <div class="sidebar-info">
+                            <div class="info-block">
+                                <h3>Professional Certifications</h3>
+                                <div class="cert-list">
+                                    {t.certificaciones.map((cert) => (
+                                        <article class="cert-item">
+                                            <h4>{cert.nombre}</h4>
+                                            <p>{cert.institucion} • {cert.fecha}</p>
+                                        </article>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
