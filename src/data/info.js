@@ -86,11 +86,11 @@ export const data = {
             { nombre: "Inglés", nivel: "B2 (TOEFL ITP 567)" }
         ],
         certificaciones: [
-            { nombre: "Cybersecurity Fundamentals", institucion: "IBM SkillsBuild", fecha: "2026" },
-            { nombre: "Python Essentials 1", institucion: "Python Institute", fecha: "2025" },
-            { nombre: "Introducción a la Ciberseguridad", institucion: "Cisco", fecha: "2023" },
-            { nombre: "English for IT 1", institucion: "Cisco", fecha: "Certified" },
-            { nombre: "NDG Linux Unhatched", institucion: "Cisco", fecha: "Certified" }
+            { nombre: "Cybersecurity Fundamentals", institucion: "IBM SkillsBuild", fecha: "Feb 2026" },
+            { nombre: "Python Essentials 1", institucion: "Cisco Networking Academy & Python Institute", fecha: "Nov 2025" },
+            { nombre: "Introducción a la Ciberseguridad", institucion: "Cisco Networking Academy", fecha: "Sep 2023" },
+            { nombre: "English for IT 1", institucion: "Cisco Networking Academy", fecha: "Certificación" },
+            { nombre: "NDG Linux Unhatched", institucion: "Cisco Networking Academy", fecha: "Certificación" }
         ]
     },
     en: {
@@ -180,11 +180,11 @@ export const data = {
             { nombre: "English", nivel: "B2 (TOEFL ITP 567)" }
         ],
         certificaciones: [
-            { nombre: "Cybersecurity Fundamentals", institucion: "IBM SkillsBuild", fecha: "2026" },
-            { nombre: "Python Essentials 1", institucion: "Python Institute", fecha: "2025" },
-            { nombre: "Introduction to Cybersecurity", institucion: "Cisco", fecha: "2023" },
-            { nombre: "English for IT 1", institucion: "Cisco", fecha: "Certified" },
-            { nombre: "NDG Linux Unhatched", institucion: "Cisco", fecha: "Certified" }
+            { nombre: "Cybersecurity Fundamentals", institucion: "IBM SkillsBuild", fecha: "Feb 2026" },
+            { nombre: "Python Essentials 1", institucion: "Cisco Networking Academy & Python Institute", fecha: "Nov 2025" },
+            { nombre: "Introduction to Cybersecurity", institucion: "Cisco Networking Academy", fecha: "Sep 2023" },
+            { nombre: "English for IT 1", institucion: "Cisco Networking Academy", fecha: "Certified" },
+            { nombre: "NDG Linux Unhatched", institucion: "Cisco Networking Academy", fecha: "Certified" }
         ]
     }
 };

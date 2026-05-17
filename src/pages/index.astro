@@ -155,8 +155,11 @@ const t = data[lang];
                             </div>
                             <div>
                                 <h4 style="margin-bottom: 1rem; font-weight: 800;">Cursos clave</h4>
-                                {t.certificaciones.slice(0, 3).map(cert => (
-                                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">• {cert.nombre}</p>
+                                {t.certificaciones.map(cert => (
+                                    <p style="font-size: 0.9rem; margin-bottom: 0.8rem;">
+                                        <strong>• {cert.nombre}</strong><br/>
+                                        <small style="color: var(--text-muted);">{cert.institucion}</small>
+                                    </p>
                                 ))}
                             </div>
                         </div>
