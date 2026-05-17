@@ -46,7 +46,7 @@ export const data = {
                 impacto: "Automatización total de la operación y blindaje de seguridad en el flujo de caja.",
                 tecnologias: ["Python", "Django", "DRF", "PostgreSQL", "Nginx"],
                 github: "https://github.com/Djmaster2021/laundrypro",
-                estado: "En producción"
+                estado: "Backend / POS"
             },
             {
                 nombre: "Vitalya",
@@ -56,7 +56,7 @@ export const data = {
                 impacto: "Optimización del 40% en tiempos de consulta y manejo de datos clínicos.",
                 tecnologias: ["Django", "DRF", "Vue 3", "Redis", "Docker"],
                 github: "https://github.com/Djmaster2021/vitalya",
-                estado: "Finalizado"
+                estado: "Full Stack"
             },
             {
                 nombre: "Proyecto RC",
@@ -66,7 +66,7 @@ export const data = {
                 impacto: "Automatización de la agenda y pagos, reduciendo la carga administrativa en un 50%.",
                 tecnologias: ["Django", "MySQL", "Android", "Kotlin", "Docker"],
                 github: "https://github.com/Djmaster2021/proyecto_rc",
-                estado: "Sistema real"
+                estado: "Mobile Integration"
             }
         ],
         habilidades: [
