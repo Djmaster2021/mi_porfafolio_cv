@@ -185,11 +185,29 @@ const t = data[lang];
                 <div class="contact-cta">
                     <span class="tag">Get in touch</span>
                     <h2>{t.infoPersonal.contactTitle}</h2>
-                    <p style="margin-bottom: 2.5rem; color: var(--text-secondary); font-size: 1.25rem;">{t.infoPersonal.contactDesc}</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href={`mailto:${t.infoPersonal.email}`} class="btn btn--primary">Email Me</a>
-                        <a href={`tel:${t.infoPersonal.telefono}`} class="btn btn--outline">Call Me</a>
-                        <a href={t.infoPersonal.linkedin} target="_blank" rel="noopener" class="btn btn--outline">LinkedIn</a>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem;">{t.infoPersonal.contactDesc}</p>
+                    
+                    <div class="contact-grid">
+                        <a href={`mailto:${t.infoPersonal.email}`} class="contact-card">
+                            <span style="font-size: 2rem;">✉️</span>
+                            <strong>Email</strong>
+                            <span>{t.infoPersonal.email}</span>
+                        </a>
+                        <a href={`tel:${t.infoPersonal.telefono}`} class="contact-card">
+                            <span style="font-size: 2rem;">📞</span>
+                            <strong>Phone</strong>
+                            <span>{t.infoPersonal.telefono}</span>
+                        </a>
+                        <a href={t.infoPersonal.linkedin} target="_blank" rel="noopener" class="contact-card">
+                            <span style="font-size: 2rem;">💼</span>
+                            <strong>LinkedIn</strong>
+                            <span>Professional Profile</span>
+                        </a>
+                        <a href={t.infoPersonal.github} target="_blank" rel="noopener" class="contact-card">
+                            <span style="font-size: 2rem;">💻</span>
+                            <strong>GitHub</strong>
+                            <span>Code Repositories</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -198,7 +216,7 @@ const t = data[lang];
 
     <footer>
         <div class="container">
-            <p>© 2026 {t.infoPersonal.nombre_corto}. {t.infoPersonal.footer}</p>
+            <p>© 2026 {t.infoPersonal.nombre_corto}.</p>
         </div>
     </footer>
 </Layout>
